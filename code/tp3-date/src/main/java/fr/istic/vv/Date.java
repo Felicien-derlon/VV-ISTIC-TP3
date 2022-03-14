@@ -22,50 +22,31 @@ class Date implements Comparable<Date> {
     }
 
     public Date nextDate() throws Exception {
-        int day = this.day, month = this.month, year = this.year;
-        try{
-            ++day;
-            isValidDate(day,month,year);
-        }catch(Exception ex){
-            try{
-                ++month;
+        int day = this.day + 1, month = this.month, year = this.year;
+        if(!isValidDate(day,month,year)){
+            ++month;
+            day = 1;
+            if(!isValidDate(day,month,year)){
+                ++year;
+                month = 1;
                 day = 1;
-                isValidDate(day,month,year);
-            }catch(Exception ex1){
-                try{
-                    ++year;
-                    month = 1;
-                    day = 1;
-                    isValidDate(day,month,year);
-                }catch(Exception ex2){
-                    System.out.println("Something went wrong.");
-                }
             }
         }
         return new Date(day, month, year);
     }
 
     public Date previousDate() throws Exception {
-        int day = this.day, month = this.month, year = this.year;
-        try{
-            --day;
-            isValidDate(day,month,year);
-        }catch(Exception ex){
-            try{
-                --month;
+        int day = this.day - 1, month = this.month, year = this.year;
+        if(!isValidDate(day,month,year)){
+            --month;
+            if (month == 0) {
+                --year;
+                month = 12;
+                day = 31;
+            }else{
                 day = nbJours[month - 1];
-                if(isLeapYear(year) &&  month == 2) ++day;
-                isValidDate(day,month,year);
-            }catch(Exception ex1){
-                try{
-                    --year;
-                    month = 12;
-                    day = 31;
-                    isValidDate(day,month,year);
-                }catch(Exception ex2){
-                    System.out.println("Something went wrong.");
-                }
             }
+            if(isLeapYear(year) &&  month == 2) ++day;
         }
         return new Date(day, month, year);
     }
