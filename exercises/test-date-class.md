@@ -72,3 +72,5 @@ On utilise compareTo() pour comparer deux dates (utilisez dans les tests de next
 Avec la commande : mvn test-compile org.pitest:pitest-maven:mutationCoverage
 
 Nous avons un score de couverture des lignes de 100% et un score de mutation de 66%.
+
+![coverage test](../photo/exercice4.png)

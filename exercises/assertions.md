@@ -12,9 +12,9 @@ Answer the following questions:
 
 ## Answer
 
-1.  L'utilisation d'un assertTrue avec une comparaison de deux double n'est pas approprié, assertEquals aurait été plus judicieux. Et pour la comparraison de 2 double il faut utiliser un delta pour avoir un environ égal entre 2 double. 
+1.  L'utilisation d'un assertTrue avec une comparaison de deux doubles n'est pas appropriée, assertEquals aurait été plus judicieux. Et pour la comparaison de 2 double il faut utiliser un delta pour avoir un environ égal entre 2 double. 
 
-2.  assertSame permet de vérifier que 2 objet référence le même objet, tandis que assertEquals vérifie que 2 objet sont égale. 
+2.  assertSame permet de vérifier que 2 objet référence le même objet, tandis que assertEquals vérifie que 2 objets sont égaux. 
     ```
     Personne p1 = new Personne(); 
     Personne p2 = new Personne();  
@@ -59,4 +59,4 @@ Answer the following questions:
     }
     ```
 
-4.  La méthode assertThrows() permet un contrôle plus précis de la logique d'assertion d'exception car nous pouvons l'utiliser autour de parties spécifiques du code. Avec `@Test` on peut déclarer une execption qui doit être lever ``` @Test(expected = NullPointerException.class) ``` mais pour déclarer plusieur exception on doit passer par ExpectedException rule. 
+4.  La méthode assertThrows() permet un contrôle plus précis de la logique d'assertion d'exception car nous pouvons l'utiliser autour de parties spécifiques du code. Avec `@Test` on peut déclarer une execption qui doit être levée ``` @Test(expected = NullPointerException.class) ``` mais pour déclarer plusieurs exceptions on doit passer par ExpectedException rule. 
